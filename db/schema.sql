@@ -11,6 +11,6 @@ CREATE TABLE movies (
     has_watched BOOLEAN,
     rotten_tomato_score INTEGER,
     CHECK (rotten_tomato_score >= 0 AND rotten_tomato_score <= 100),
-    release_date DATE,
+    release_date DATE NOT NULL ,
     runtime INTEGER
 );
