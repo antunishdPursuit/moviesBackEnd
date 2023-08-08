@@ -20,4 +20,10 @@ node_modules
 7. npm install express dotenv cors pg-promise
 8. git add server.js app.js
 9. git commit -m 'first commit'
-## In a normal setting .gitignore should not be pushed to the repository 
+## In a normal setting .gitignore should not be pushed to the repository
+When creating new databases make sure to use the below commands 
+
+```
+psql -U postgres -f db/schema.sql
+psql -U postgres -f db/seed.sql
+```
