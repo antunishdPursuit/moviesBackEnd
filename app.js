@@ -15,8 +15,8 @@ app.get("/", (req, res) => {
 });
 
 // movies ROUTES
-const moviesController = require("./controllers/movieController.js");
-app.use("/movies", moviesController);
+const movieController = require("./controllers/movieController.js");
+app.use("/movies", movieController);
 
 // 404 PAGE
 app.get("*", (req, res) => {
