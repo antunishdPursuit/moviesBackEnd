@@ -21,10 +21,9 @@ const getMovie = async (id) => {
   const newMovie = async (movie) => {
     try {
       const newMovie = await db.one(
-        "INSERT INTO movies ( title, director, genre, has_watched, rotten_tomato_score, release_date, runtime ) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-        [ movie.title, movie.director, movie.genre, movie.has_watched, movie.rotten_tomato_score, movie.release_date, movie.runtime ]
+        "INSERT INTO movies ( title, director, genre, has_watched, rotten_tomato_score, release_date, runtime, poster ) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+        [ movie.title, movie.director, movie.genre, movie.has_watched, movie.rotten_tomato_score, movie.release_date, movie.runtime, movie.poster ]
       );
-  
       return newMovie;
     } catch (err) {
       return err;
@@ -46,8 +45,8 @@ const getMovie = async (id) => {
   const updateMovie = async (id, movie) => {
     try {
       const updatedMovie = await db.one(
-        "UPDATE movies SET title=$1, director=$2, genre=$3, has_watched=$4, rotten_tomato_score=$5, release_date=$6, runtime=$7 WHERE id =$8 RETURNING *",
-        [movie.title, movie.director, movie.genre, movie.has_watched, movie.rotten_tomato_score, movie.release_date, movie.runtime, id]
+        "UPDATE movies SET title=$1, director=$2, genre=$3, has_watched=$4, rotten_tomato_score=$5, release_date=$6, runtime=$7, poster=$8 WHERE id =$9 RETURNING *",
+        [movie.title, movie.director, movie.genre, movie.has_watched, movie.rotten_tomato_score, movie.release_date, movie.runtime, movie.poster, id]
       );
       return updatedMovie;
     } catch (err) {
