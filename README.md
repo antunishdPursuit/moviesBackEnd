@@ -50,3 +50,4 @@ psql -U postgres -f db/seed.sql
 ```
 npm run dbinit 
 npm run dbseed
+```

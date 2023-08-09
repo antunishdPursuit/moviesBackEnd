@@ -2,7 +2,7 @@ const db = require("../db/dbConfig.js");
 
 const getAllMovies = async() => {
   try {
-    const allMovies = await db.any("SELECT * FROM movies");
+    const allMovies = await db.any("SELECT *, To_Char(release_date,'YYYY-MM-DD') as release_date FROM movies");
     return allMovies; 
   } catch (error) {
     return error;
@@ -11,7 +11,7 @@ const getAllMovies = async() => {
 
 const getMovie = async (id) => {
     try {
-      const oneMovie = await db.one("SELECT * FROM movies WHERE id=$1", id);
+      const oneMovie = await db.one("SELECT *, To_Char(release_date,'YYYY-MM-DD') as release_date FROM movies WHERE id=$1", id);
       return oneMovie;
     } catch (err) {
       return err;
