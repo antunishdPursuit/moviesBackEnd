@@ -3,6 +3,8 @@ CREATE DATABASE movies_dev;
 
 \c movies_dev;
 
+Drop TABLE IF EXISTS movies
+
 CREATE TABLE movies (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
